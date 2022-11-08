@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
-import { ResidenFilter } from "./components/ResidenFilter";
+import { RickMortyLocation } from "./components/RickMortyLocation";
 import ParticlesBackground from "./components/ParticlesBackground";
 
 function App() {
@@ -9,8 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      
-      <ResidenFilter />
+      <RickMortyLocation />
     </div>
   );
 }

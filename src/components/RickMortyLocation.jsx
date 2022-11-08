@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "./ResidentFilter.css";
-import { Residents } from "./Residents";
-import { ResidentSearch } from "./ResidentSearch";
+import "./RickMortyLocation.css";
+import { LocationInfo } from "./LocationInfo";
+import { LocationSearch } from "./LocationSearch";
 import headerLogo from "../assets/img/image2.svg";
 import ParticlesBackground from "./ParticlesBackground";
 import headerFondo from "../assets/img/fondo1mejo.png";
 
-export const ResidenFilter = () => {
+export const RickMortyLocation = () => {
   const randomLocation = () => Math.floor(Math.random() * 126) + 1;
 
-  const [resident, setResident] = useState(
+  const [urlLocation, setUrlLocation] = useState(
     `https://rickandmortyapi.com/api/location/${randomLocation()}`
   );
 
   const changeLocation = (urlChanged) => {
-    setResident(urlChanged);
+    setUrlLocation(urlChanged);
   };
 
   return (
@@ -22,15 +22,18 @@ export const ResidenFilter = () => {
       <header className="header">
         <img className="headerFondo" src={headerFondo} width="600px" alt="" />
         <img className="headerLogo" src={headerLogo} alt="" />
-        <ResidentSearch changeLocation={changeLocation} />
+        <LocationSearch changeLocation={changeLocation} />
       </header>
       <main className="main">
-        <Residents url={resident} />
+        <LocationInfo urlLocation={urlLocation} />
         <ParticlesBackground />
       </main>
       <footer className="footer">
         Made with ♥ in Academlo
-        <a href="">
+        <a
+          href="https://github.com/Jonijech96/rick-and-morty-App"
+          target="_blank"
+        >
           <svg
             className="footer-github"
             xmlns="http://www.w3.org/2000/svg"

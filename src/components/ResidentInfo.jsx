@@ -11,7 +11,6 @@ export const ResidentInfo = ({ data }) => {
   useEffect(() => {
     axios.get(data).then((res) => setResident(res.data));
   }, []);
-  // console.log(resident);
   return (
     <li className="resident-card">
       <h3>{resident.name}</h3>

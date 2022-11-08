@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Pagination } from "./Pagination";
 import { ResidentInfo } from "./ResidentInfo";
 import loader from "../assets/img/loader.png";
-import "./Residents.css";
+import "./LocationInfo.css";
 
-export const Residents = ({ url }) => {
+export const LocationInfo = ({ urlLocation }) => {
   const [location, setLocation] = useState([]);
   const [page, setPage] = useState(0);
   const forPage = 9;
@@ -13,14 +13,13 @@ export const Residents = ({ url }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(url).then((res) => {
+    axios.get(urlLocation).then((res) => {
       setIsLoading(false);
       setLocation(res.data);
     });
-  }, [url]);
+  }, [urlLocation]);
 
   const pageMax = Math.ceil(location.residents?.length / forPage);
-  // console.log(location);
   if (isLoading) {
     return <img src={loader} alt="" width="300px" className="loading" />;
   }
@@ -34,7 +33,7 @@ export const Residents = ({ url }) => {
           <h2>number of residents: {location.residents.length}</h2>
         </div>
       </div>
-      <Pagination max={pageMax} setPage={setPage} />
+      <Pagination max={pageMax} setPage={setPage} page={page} />
       <ul className="residents-grid">
         {location.residents
           ?.slice(page * forPage, page * forPage + forPage)
@@ -42,7 +41,7 @@ export const Residents = ({ url }) => {
             <ResidentInfo data={resident} key={resident} />
           ))}
       </ul>
-      <Pagination max={pageMax} setPage={setPage} />
+      <Pagination max={pageMax} setPage={setPage} page={page} />
     </>
   );
 };

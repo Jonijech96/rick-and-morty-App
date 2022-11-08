@@ -1,34 +1,32 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "./ResidentSearch.css";
+import "./LocationSearch.css";
 import AsyncSelect from "react-select/async";
 
-export const ResidentSearch = ({ changeLocation }) => {
-  const [inputLocation, setInputLocation] = useState("");
-  const [residentAll, setResidentAll] = useState([]);
+export const LocationSearch = ({ changeLocation }) => {
+  const [inputIdLocation, setInputIdLocation] = useState("");
+  const [locationAll, setLocationAll] = useState([]);
   const [isSearchId, setIsSearchId] = useState(false);
 
-  const handleOnChange = () => {
+  const idHandleChange = () => {
     setIsSearchId(!isSearchId);
   };
 
   const loadOptions = (inputValue, callback) => {
-    const url = `https://rickandmortyapi.com/api/location/?name=${inputValue}`;
-    axios.get(url).then((res) => {
-      setResidentAll(res.data.results);
-      // console.log(inputValue);
+    const optionsUrl = `https://rickandmortyapi.com/api/location/?name=${inputValue}`;
+    axios.get(optionsUrl).then((res) => {
+      setLocationAll(res.data.results);
       callback(
-        residentAll.map((result) => ({
-          label: result.name,
-          value: result.url,
+        locationAll.map((location) => ({
+          label: location.name,
+          value: location.url,
         }))
       );
     });
   };
 
-  const handleChange = ({ value }) => {
-    // console.log(value);
-    changeLocation(value);
+  const selectHandleChange = ({ value: url }) => {
+    changeLocation(url);
   };
 
   return (
@@ -37,16 +35,16 @@ export const ResidentSearch = ({ changeLocation }) => {
         className={`checkbox ${isSearchId && "check-search"}`}
         type="checkbox"
         checked={isSearchId}
-        onChange={handleOnChange}
+        onChange={idHandleChange}
       />
 
       {!isSearchId ? (
         <AsyncSelect
           className="search-select"
-          placeholder="write location to search..."
+          placeholder="type a location to search..."
           cacheOptions
           loadOptions={loadOptions}
-          onChange={handleChange}
+          onChange={selectHandleChange}
         />
       ) : (
         <>
@@ -54,13 +52,13 @@ export const ResidentSearch = ({ changeLocation }) => {
             className="input-text"
             type="text"
             placeholder="write id"
-            value={inputLocation}
-            onChange={(e) => setInputLocation(e.target.value)}
+            value={inputIdLocation}
+            onChange={(e) => setInputIdLocation(e.target.value)}
           />
           <button
             onClick={() =>
               changeLocation(
-                `https://rickandmortyapi.com/api/location/${inputLocation}`
+                `https://rickandmortyapi.com/api/location/${inputIdLocation}`
               )
             }
           >

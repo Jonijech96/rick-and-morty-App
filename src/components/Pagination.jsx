@@ -1,12 +1,16 @@
 import React from "react";
 import "./Pagination.css";
 
-export const Pagination = ({ max, setPage }) => {
+export const Pagination = ({ max, setPage, page }) => {
   let arrayButtons = [];
 
   for (let index = 0; index < max; index++) {
     arrayButtons.push(
-      <button onClick={() => setPage(index)} key={index}>
+      <button
+        className={page == index ? "button-select" : ""}
+        onClick={() => setPage(index)}
+        key={index}
+      >
         {index + 1}
       </button>
     );
