@@ -1,0 +1,69 @@
+.checkbox{
+  appearance: none;
+  height: 40px;
+  width: 70px;
+  background-color: #2e4714;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  margin: 0;
+}
+.checkbox::after{
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(164 161 161);
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+  transition: all .6s ease;
+
+}
+
+.checkbox.check-search::after{
+  left: 33px;
+  background-color: #adff2f;
+}
+.list-search{
+  width: 300px;
+  background-color: #adff2f2b;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.button-search{
+  width: 100%;
+}
+
+.search-content{
+  display: flex;
+  /* flex-direction: column; */
+  /* place-items: center; */
+  gap: 8px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.input-text{
+  /* width: 100%; */
+  border-radius: 10px;
+  height: 30px;
+  padding: 0 0 0 15px;
+}
+.search-select{
+  width: 300px;
+}
+
+@media (max-width:400px) {
+  .search-content{
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,71 @@
+.grid-page{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.locationSelect{
+  cursor: pointer;
+}
+
+.header{
+  /* background-image: url("../assets/img/fondo1mejo.png"); */
+  /* width: 100%; */
+  /* background-position: center center; */
+  /* height: 30vh; */
+  /* background-size: cover; */
+  position: relative;
+}
+
+.headerFondo{
+  display: block;
+  margin: auto;
+}
+.headerLogo{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 20px;
+}
+.footer{
+  background-color: #b9b9b9cc;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: auto;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 20px 20px 5px 5px;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  /* place-items: center; */
+  align-items: center;
+
+}
+.footer-github{
+  width: 40px;
+  fill: #14220e;
+  transition: all .6s;
+  
+}
+.footer-github:hover{
+  filter: drop-shadow(2px 4px 6px #abff2ec4);
+  fill: #abff2ec4;
+}
+
+@media (max-width:800px) {
+  .headerFondo{
+    width: 100%;
+    max-width: 400px;
+  }
+  .headerLogo{
+    width: 60%;
+    max-width: 300px;
+  }
+}
