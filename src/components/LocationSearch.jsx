@@ -28,6 +28,15 @@ export const LocationSearch = ({ changeLocation }) => {
   const selectHandleChange = ({ value: url }) => {
     changeLocation(url);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    changeLocation(
+      `https://rickandmortyapi.com/api/location/${inputIdLocation}`
+    );
+  };
+  // const handleSearchId = (e) => {
+  //   console.log(e.keyCode);
+  // };
 
   return (
     <div className="search-content">
@@ -48,22 +57,16 @@ export const LocationSearch = ({ changeLocation }) => {
         />
       ) : (
         <>
-          <input
-            className="input-text"
-            type="text"
-            placeholder="write id"
-            value={inputIdLocation}
-            onChange={(e) => setInputIdLocation(e.target.value)}
-          />
-          <button
-            onClick={() =>
-              changeLocation(
-                `https://rickandmortyapi.com/api/location/${inputIdLocation}`
-              )
-            }
-          >
-            search
-          </button>
+          <form action="" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className="input-text"
+              placeholder="write id"
+              value={inputIdLocation}
+              onChange={(e) => setInputIdLocation(e.target.value)}
+            />
+            <button>search</button>
+          </form>
         </>
       )}
     </div>
