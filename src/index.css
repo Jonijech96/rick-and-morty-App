@@ -47,7 +47,9 @@ ul{
 span{
   display: block;
   color: #464646cf;
+  line-height: 1;
 }
+
 
 button {
   border-radius: 8px;
@@ -72,7 +74,7 @@ button:focus-visible {
 }
 h3{
   font-size: 2rem;
-
+  line-height: 0;
 }
 
 input{
@@ -82,11 +84,17 @@ input{
 }
 
 @media (max-width:800px) {
-  :root{
-    font-size: 10px;
+  h1 {
+    font-size: 2.5em;
+    line-height: 1;
+    margin: 1rem 0 0;
+  }
+  h2{
+    font-size: 1.3em;
   }
 
   p{
     margin: 0;
+    margin-bottom: 3px;
   }
 }

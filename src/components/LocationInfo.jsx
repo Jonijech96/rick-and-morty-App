@@ -21,7 +21,12 @@ export const LocationInfo = ({ urlLocation }) => {
 
   const pageMax = Math.ceil(location.residents?.length / forPage);
   if (isLoading) {
-    return <img src={loader} alt="" width="300px" className="loading" />;
+    // return <img src={loader} alt="" width="300px" className="loading" />;
+    return (
+      <div className="spinner">
+        <div className="circle"></div>
+      </div>
+    );
   }
   return (
     <>
